@@ -112,15 +112,16 @@ button:hover {
   align-items: center;
   text-align: center;
   height: 100vh;
-  overflow: hidden; /* keep this */
+  overflow: hidden; /* keeps full-screen look */
 }
 
 .letter-container {
   width: 90%;
   max-width: 400px;
-  height: 90vh; /* give it a height limit */
-  overflow-y: auto; /* enable vertical scroll */
-  padding-right: 8px; /* prevent text from hiding under scrollbar */
+  height: 90vh; /* slightly smaller than viewport to allow padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Optional: hide ugly scrollbar for mobile aesthetic */
@@ -151,7 +152,18 @@ button:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   text-align: left;
   line-height: 1.6;
-  animation: fadeIn 1s ease-in-out;
+  overflow-y: auto;      /* key fix */
+  max-height: 70vh;      /* limits height for scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* keep button spacing nice */
+.paper button {
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .letter-text {
