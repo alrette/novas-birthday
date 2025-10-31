@@ -151,6 +151,116 @@ button:hover {
   display: none;
 }
 
+/* ========== PAGE 3: TABBED GALLERY PAGE ========== */
+.gallery-page {
+  background: linear-gradient(180deg, #fff1f9 0%, #ffeaf4 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.tab-container {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffffd9;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(255,192,203,0.6);
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: rgba(255,105,180,0.9);
+  color: white;
+  transform: scale(1.05);
+}
+
+.tab-btn:hover {
+  background-color: rgba(255,105,180,0.8);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tab-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Music links */
+.music-list p a {
+  color: #d63384;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.music-list p a:hover {
+  text-decoration: underline;
+}
+
+/* Photo grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .tab-btn { font-size: 0.9rem; padding: 8px; }
+  .photo-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+}
+
+
 /* ===============================
    BUTTON (SHARED STYLE)
    =============================== */
