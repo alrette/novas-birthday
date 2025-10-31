@@ -64,6 +64,7 @@ body.intro-page {
   animation: fadeIn 2s ease-in-out;
 }
 
+
 #bg-video { z-index: -2; }
 .overlay { z-index: -1; }
 .content { z-index: 1; position: relative; }
@@ -120,7 +121,7 @@ button:hover {
 }
 
 .envelope {
-  width: 180px;
+  width: 400px;
   margin-bottom: 20px;
   animation: float 3s ease-in-out infinite;
 }
