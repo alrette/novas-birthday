@@ -112,12 +112,24 @@ button:hover {
   align-items: center;
   text-align: center;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* keep this */
 }
 
 .letter-container {
   width: 90%;
   max-width: 400px;
+  height: 90vh; /* give it a height limit */
+  overflow-y: auto; /* enable vertical scroll */
+  padding-right: 8px; /* prevent text from hiding under scrollbar */
+}
+
+/* Optional: hide ugly scrollbar for mobile aesthetic */
+.letter-container::-webkit-scrollbar {
+  width: 6px;
+}
+.letter-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 105, 180, 0.5);
+  border-radius: 3px;
 }
 
 .envelope {
@@ -294,6 +306,29 @@ button:hover {
     border-radius: 10px;
   }
 }
+
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.reasons-list li {
+  background: rgba(255,192,203,0.3);
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  transition: background 0.3s ease;
+}
+
+.reasons-list li:hover {
+  background: rgba(255,192,203,0.5);
+}
+
 
 /* Responsive */
 /* @media (max-width: 480px) {
