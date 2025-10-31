@@ -64,18 +64,22 @@ body.intro-page {
   animation: fadeIn 2s ease-in-out;
 }
 
+#bg-video { z-index: -2; }
+.overlay { z-index: -1; }
+.content { z-index: 1; position: relative; }
+
 /* Text Styles */
 .content h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.5);
 }
 
 .content p {
   font-size: 1.1rem;
   font-weight: 400;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 /* Button */
