@@ -1,22 +1,29 @@
-/* Reset */
+/* ========== GLOBAL RESET ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
 body {
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  overflow-x: hidden;
 }
 
-/* Video background */
+/* ===============================
+   PAGE 1: INTRO (VIDEO BACKGROUND)
+   =============================== */
+
+body.intro-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+/* Background video */
 #bg-video {
   position: fixed;
   top: 0;
@@ -24,56 +31,41 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
+  filter: brightness(60%);
 }
 
+/* Overlay to darken the video a bit more */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45); /* adjust opacity: 0.3–0.6 */
-  z-index: 0; /* below text but above video */
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
 }
 
-
-/* Text content */
+/* Content container for intro */
 .content {
   position: relative;
-  color: white;
-  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  padding: 0 20px;
   animation: fadeIn 2s ease-in-out;
-  font-size: 50px;
 }
 
-/* Button */
-button {
-  margin-top: 20px;
-  padding: 24px 50px;
-  width: 750px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 30px;
-  background-color: rgba(32, 28, 159, 0.8);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 60px;
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-button:hover {
-  background-color: rgba(13, 3, 149, 0.9);
+.content p {
+  font-size: 1.1rem;
 }
 
-/* Fade animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ========== LETTER PAGE ========== */
+/* ===============================
+   PAGE 2: LETTER PAGE
+   =============================== */
 .letter-page {
   background: linear-gradient(180deg, #ffeaf4 0%, #fff5fa 100%);
   display: flex;
@@ -81,7 +73,7 @@ button:hover {
   align-items: center;
   text-align: center;
   height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
 .letter-container {
@@ -92,6 +84,7 @@ button:hover {
 .envelope {
   width: 180px;
   margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
 }
 
 .envelope-text {
@@ -104,20 +97,102 @@ button:hover {
   background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  line-height: 1.6;
   animation: fadeIn 1s ease-in-out;
 }
 
 .letter-text {
-  font-size: 1rem;
   color: #333;
-  line-height: 1.6;
-  text-align: left;
+  font-size: 1rem;
 }
 
 .hidden {
   display: none;
 }
 
-/* Reuse your existing button styles here */
+/* ===============================
+   BUTTON (SHARED STYLE)
+   =============================== */
+button {
+  margin-top: 20px;
+  padding: 14px 70px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 40px;
+  background-color: rgba(255, 105, 180, 0.9);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
 
+button:hover {
+  background-color: rgba(255, 20, 147, 0.95);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   ANIMATIONS
+   =============================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+/* 💡 Small Phones (≤400px) */
+@media (max-width: 400px) {
+  .content h1 { font-size: 1.7rem; }
+  .content p { font-size: 1rem; }
+
+  .envelope { width: 140px; }
+  .envelope-text { font-size: 0.95rem; }
+
+  .paper { padding: 16px; }
+  .letter-text { font-size: 0.9rem; }
+
+  button {
+    padding: 12px 45px;
+    font-size: 1rem;
+  }
+}
+
+/* 📱 Mid Phones (401–600px) */
+@media (min-width: 401px) and (max-width: 600px) {
+  .content h1 { font-size: 2rem; }
+  .content p { font-size: 1.05rem; }
+
+  .envelope { width: 160px; }
+  .paper { padding: 18px; }
+  button { padding: 14px 55px; font-size: 1.05rem; }
+}
+
+/* 💻 Tablets (601–900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .content h1 { font-size: 2.4rem; }
+  .content p { font-size: 1.15rem; }
+
+  .letter-container { max-width: 500px; }
+  .paper { padding: 25px; }
+  .letter-text { font-size: 1.05rem; }
+}
+
+/* 🖥️ Desktop (≥901px) */
+@media (min-width: 901px) {
+  .content h1 { font-size: 2.8rem; }
+  .content p { font-size: 1.2rem; }
+
+  .envelope { width: 200px; }
+  .paper { padding: 30px; }
+  .letter-text { font-size: 1.1rem; }
+}
