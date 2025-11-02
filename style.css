@@ -455,3 +455,69 @@ button:hover {
   .paper { padding: 30px; }
   .letter-text { font-size: 1.1rem; }
 }
+#giftTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.gift-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  justify-items: center; /* ensures each card is centered horizontally */
+}
+
+/* Each gift box */
+.gift-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 320px; /* limit width of each card */
+}
+
+.gift-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(255, 105, 180, 0.25);
+}
+
+/* Images */
+.gift-photo {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gift-item:hover .gift-photo {
+  transform: scale(1.03);
+}
+
+/* Captions */
+.gift-caption {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Mobile view fix */
+@media (max-width: 600px) {
+  .gift-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
